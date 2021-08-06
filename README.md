@@ -20,50 +20,20 @@
 
 ## How to use
 
-### Build
+1. run youtube2notion container
+- [docker-compose.yml file](https://github.com/gnokoheat/docker-collection/blob/main/youtube-to-notion/docker-compose.yml)
 
-#### Clone the repo
-
-```sh
-git clone git@github.com:taehoio/youtube2notion.git
+```
+# docker-compose up -d
 ```
 
-#### Build the docker image
+2. translate youtube to notion command
+- [run-command.sh file](https://github.com/gnokoheat/docker-collection/blob/main/youtube-to-notion/run-command.sh)
 
-```sh
-docker build -t taehoio/youtube2notion .
 ```
+# ./run-command.sh
 
-### CLI
-
-#### Run CLI
-
-```sh
-docker run --rm -it taehoio/youtube2notion youtube2notion.py
-```
-
-#### Run CLI with arguments
-
-```sh
-docker run --rm -it taehoio/youtube2notion youtube2notion.py YOUTUBE_VIDEO_ID -t NOTION_TOKEN_V2 -p NOTION_PAGE_ID
-```
-
-### API server
-
-#### Run API server
-
-```sh
-docker run --rm -it --name youtube2notion -p 5000:5000 taehoio/youtube2notion app.py
-```
-
-#### Call API endpoint
-
-```sh
-curl --location --request POST 'http://localhost:5000/upload' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "video_id": "YOUTUBE_VIDEO_ID",
-    "notion_token_v2": "NOTION_TOKEN_V2",
-    "notion_page_url": "NOTION_PAGE_ID"
-}'
+Enter a video id:
+Enter a notion page url:
+Enter a notion token v2:
 ```
