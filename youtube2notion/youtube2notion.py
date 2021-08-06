@@ -59,7 +59,7 @@ class Youtube2notion:
         page = client.get_block(notion_page_url)
 
         with open(md_file, 'r', encoding='utf-8') as f:
-            new_page = page.children.add_new(PageBlock, title=self.video_id)
+            new_page = page.children.add_new(PageBlock, title=self.video_id + '(' + self.text_language + ')')
             upload(f, new_page)
 
     def execute(self):
