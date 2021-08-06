@@ -1,6 +1,8 @@
 FROM python:3.9.5-alpine3.13 AS builder
 
 RUN apk add --no-cache libc6-compat build-base
+RUN apk update
+RUN apk add git
 
 # Google CloudRun changes HOME to /home for CMD where RUN uses /root
 # https://stackoverflow.com/questions/62276734/google-cloud-run-changes-home-to-home-for-cmd-where-run-uses-root
